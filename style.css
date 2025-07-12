@@ -201,7 +201,7 @@ p {
   padding: 30px;
   border-radius: 20px;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 30px #ffffff0d;
   flex-direction: row; /* Always same direction */
   transform: scale(0.9);
 }
@@ -244,7 +244,7 @@ p {
 
 .project-info {
   width: 55%;
-  padding: 20px;
+  padding: 10px;
   color: #f3f3f3;
 }
 
@@ -296,12 +296,9 @@ p {
 }
 
 
-
 .project-link a:hover .github-icon {
   transform: rotate(7deg) scale(1.1);
 }
-
-
 
 .project-pink {
   border: 2px solid #ff6ec4;
@@ -326,12 +323,12 @@ p {
 
 .certifications-section {
   position: relative;
-  background: linear-gradient(to right, #f02ea3ca, #ff9372cc, #ffda60db);
+  background: radial-gradient(circle, #fb7045cc 0%, #b0046cca 40%, #53024fdb 70%);
   border-radius: 20px;
   padding: 30px 30px 100px;
   margin: 80px auto;
   width: 80%;
-  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.341);
+  box-shadow: 0 10px 25px rgba(201, 8, 185, 0.341);
 }
 
 
