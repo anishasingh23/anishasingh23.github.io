@@ -1,244 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anisha's Magical Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anisha Singh - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 </head>
 <body>
+    <!-- Start of new intro -- >
+     
+    <!-- QUIRKY LANDING OVERLAY - Add this right after <body> -->
+    <div id="landing-overlay" class="landing-overlay">
+        <div class="stars"></div>
 
-  <header class="navbar">
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  </header>
+        <div class="landing-container">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="terminal-title">visitor_scanner_v2.1.exe</div>
+                </div>
+                <div class="terminal-body">
+                    <div id="typewriter"></div>
+                    <span class="cursor"></span>
+                </div>
+            </div>
 
-  <!-- Particles Backgrounds -->
-  <div id="cursor-glow"></div>
+            <button class="enter-button" id="enterBtn" onclick="enterPortfolio()">
+                Enter Portfolio →
+            </button>
 
-  <div id="stars-particles"></div>
-  <div id="rainbow-particles"></div>
+            <br>
+            <br>
 
-  <!-- Hero Section -->
-  <div id="home" class="hero">
-    <h1><span id="typewriter-text" class="rainbow-text"></span></h1>
+            <button class="skip-button" onclick="enterPortfolio()">Skip Intro</button>
+        </div>
 
-    <pre class="highlighted-code" style="background: rgba(184, 31, 174, 0.15); border-radius: 8px; padding: 1rem; font-family: 'Fira Mono', 'Consolas', monospace; color: #fdff85; font-size: 1.05rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-  Currently Training...
-  Epoch: B.Tech Final Year
-  Loss: Decreasing
-  Accuracy: Increasing
-  Status: Ready for real-world deployment.
-    </pre>
-
-    <div class="tech-pills">
-      <span class="pill float-down">Machine Learning</span>
-      <span class="pill float-up">C++</span>
-      <span class="pill float-down">Python</span>
-      <span class="pill float-up">SQL</span>
-      <span class="pill float-down">Figma</span>
-      <span class="pill float-up">GenAI</span>
-      <span class="pill float-down">TensorFlow</span>
-      <span class="pill float-up">Deep Learning</span>
-      <span class="pill float-down">RAG</span>
-      <span class="pill float-up">Semantic Search</span>
-      <span class="pill float-down">OOP</span>
+        <!-- Camera Permission Modal -->
+        <div class="camera-modal" id="cameraModal">
+            <div class="camera-modal-content">
+                <h3>🎥 Want a personalized experience?</h3>
+                <p>I can analyze your reactions in real-time to make this more fun!</p>
+                <p class="privacy-note">🔒 Everything stays on your device - no data sent anywhere</p>
+                
+                <div class="camera-buttons">
+                    <button class="cam-btn allow" onclick="requestCamera()">Sure, let's do it!</button>
+                    <button class="cam-btn skip" onclick="skipCamera()">Maybe later</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Camera Denied "Think Again" Modal -->
+        <div class="camera-denied-modal" id="cameraDeniedModal">
+            <div class="camera-modal-content">
+                <h3>🤔 Think again?</h3>
+                <p>The emotion detection is pretty cool... it can tell when you're impressed!</p>
+                <p class="privacy-note">Still 100% private - just for fun interactions</p>
+                
+                <div class="camera-buttons">
+                    <button class="cam-btn allow" onclick="requestCamera()">OK, I'm curious</button>
+                    <button class="cam-btn skip" onclick="skipCamera()">Nah, continue</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Camera Video Preview Window -->
+        <div class="camera-preview" id="cameraPreview">
+            <video id="userVideo" autoplay muted></video>
+            <div class="emotion-display" id="emotionDisplay">😐 Analyzing...</div>
+            <button class="close-camera" onclick="closeCamera()">×</button>
+        </div>
+        
     </div>
 
-  </div>
-
-<!-- Projects Section -->
-<section id="projects" class="projects">
-  <h2>My Projects</h2>
-
-  <!-- Project 1 -->
-  <div class="project project-pink">
-    <div class="project-info">
-      <h3>VectorSense</h3>
-      <p>Devised a high-relevance semantic search engine achieving ~95% query accuracy across 100+ documents by integrating FAISS and Sentence
-BERT embeddings.</p>
-      <span>Tech: Python | FAISS | Sentence-BERT | RAG | Streamlit </span>
-      <div class="project-link">
-        <a href="https://github.com/anishasingh23/vectorSearchEngine" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-icon" style="width:36px;height:36px;box-shadow:none;filter:invert(1);" />
-          <span>Visit GitHub repo</span>
-        </a>
-      </div>
+        <!-- Floating emojis -->
+        <div class="floating-emoji" style="top: 15%; left: 10%; animation-delay: 0s;">💻</div>
+        <div class="floating-emoji" style="top: 25%; right: 15%; animation-delay: 2s;">🚀</div>
+        <div class="floating-emoji" style="bottom: 20%; left: 20%; animation-delay: 4s;">⚡</div>
+        <div class="floating-emoji" style="top: 40%; right: 25%; animation-delay: 1s;">🎯</div>
     </div>
-  </div>
-  
 
-  <!-- Project 2 -->
-  <div class="project project-purple">
-    <div class="project-info">
-      <h3>Real-Time Alerting System</h3>
-      <p> Developed a scalable alerting engine using multithreading and event-driven architecture to monitor streaming datasets in real time.
-</p>
-      <span>Tech: Python | Multithreading | OOP | Queues</span>
-      <div class="project-link">
-        <a href="https://github.com/anishasingh23/alerting_System" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-icon" style="width:36px;height:36px;box-shadow:none;filter:invert(1);" />
-          <span>Visit GitHub repo</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Project 3 -->
-  <div class="project project-pink">
-    <div class="project-info">
-      <h3>Algorithmic Trading Bot Development</h3>
-      <p>Built an end-to-end trading platform combining LSTM-based stock price forecasting with multi-strategy backtesting (VWAP, TWAP, LSTM predictive trading) using Backtrader. Developed a modular backtest runner delivering configurable performance metrics (Sharpe Ratio, Max Drawdown, Win Rate) on Yahoo Finance data.</p>
-      <span>Tech: Python | LSTM</span>
-      <div class="project-link">
-        <a href="https://github.com/anishasingh23/stockPricePred/tree/main" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-icon" style="width:36px;height:36px;box-shadow:none;filter:invert(1);" />
-          <span>Visit GitHub repo</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 4 -->
-  <div class="project project-purple">
-    <div class="project-info">
-      <h3>Wikipedia Semantic Explorer</h3>
-      <p>Built an AI-powered Wikipedia explorer using BERT embeddings that identifies semantically related articles (85% accuracy) and visualizes connections via Plotly, reducing research time by 60% through automated relevance scoring and interactive topic mapping deployed via Streamlit.</p>
-      <span>Tech: Python | Transformers</span>
-      <div class="project-link">
-        <a href="https://github.com/anishasingh23/wikipediaArticleSummary" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-icon" style="width:36px;height:36px;box-shadow:none;filter:invert(1);" />
-          <span>Visit GitHub repo</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 5 -->
-  <div class="project project-pink">
-    <div class="project-info">
-      <h3>Snap n’ Score</h3>
-      <p>Developed an innovative QR-based Attendance Management System for educational institutions, successfully reducing incidents of proxy attendance by 45%. Tools used: Flutter, Figma, Supabase.</p>
-      <span>Tech: Flutter | Supabase</span>
-      <div class="project-link">
-        <a href="https://github.com/anishasingh23/login_teacher" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-icon" style="width:36px;height:36px;box-shadow:none;filter:invert(1);" />
-          <span>Visit GitHub repo</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 6 -->
-  <div class="project project-purple">
-    <div class="project-info">
-      <h3>Sentiment Analysis</h3>
-      <p>Developed an interactive Streamlit dashboard integrating VADER and NewsAPI for real-time sentiment analysis of user input and news articles. Implemented custom confidence scoring, keyword extraction, and visualizations (word clouds, bar charts) for sentiment insights.</p>
-      <span>Tech: Python | NLP</span>
-      <div class="project-link">
-        <a href="https://github.com/anishasingh23/sentimentAnalysis/blob/main/sentimentAnalysis" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-icon" style="width:36px;height:36px;box-shadow:none;filter:invert(1);" />
-          <span>Visit GitHub repo</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 7 -->
-  <div class="project project-pink">
-    <div class="project-info">
-      <h3>Retainlytics Customer Intelligence Platform</h3>
-      <p>Developed an end-to-end analytics solution using Python, XGBoost, and Streamlit to predict customer lifetime value (R²: 0.82) and churn risk (AUC: 0.89). Engineered RFM features from transactional data and built interactive dashboards with privacy-aware simulations, enabling data-driven retention strategies. Optimized for enterprise-scale deployment.</p>
-      <span>Tech: Python | Streamlit | XGBoost</span>
-      <div class="project-link">
-        <a href="https://github.com/anishasingh23/sentimentAnalysis/blob/main/sentimentAnalysis" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="github-icon" style="width:36px;height:36px;box-shadow:none;filter:invert(1);" />
-          <span>Visit GitHub repo</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Certifications Section -->
-  <section id="certifications" class="certifications-section">
-
-  <h2 class="certs-heading">My Certifications</h2>
-  
-  <div class="certs-wheel-static">
-    <div class="cert-node" style="--i:0"><img src="assets/cert1.png" alt="Cert 1"></div>
-    <div class="cert-node" style="--i:1"><img src="assets/cert2.png" alt="Cert 2"></div>
-    <div class="cert-node" style="--i:2"><img src="assets/cert3.png" alt="Cert 3"></div>
-    <div class="cert-node" style="--i:3"><img src="assets/cert4.png" alt="Cert 4"></div>
-    <div class="cert-node" style="--i:4"><img src="assets/cert5.png" alt="Cert 5"></div>
-    <div class="cert-node" style="--i:5"><img src="assets/cert6.png" alt="Cert 6"></div>
-    <div class="cert-node" style="--i:6"><img src="assets/cert7.png" alt="Cert 7"></div>
-    <div class="cert-node" style="--i:7"><img src="assets/cert8.png" alt="Cert 8"></div>
-    <div class="cert-node" style="--i:8"><img src="assets/cert9.png" alt="Cert 9"></div>
-    <div class="cert-node" style="--i:9"><img src="assets/cert10.png" alt="Cert 10"></div>
-    <div class="cert-node" style="--i:10"><img src="assets/cert11.png" alt="Cert 11"></div>
-    <div class="cert-node" style="--i:11"><img src="assets/cert12.png" alt="Cert 12"></div>
-    <div class="cert-node" style="--i:12"><img src="assets/cert13.png" alt="Cert 13"></div>
-    <div class="cert-node" style="--i:13"><img src="assets/cert14.png" alt="Cert 14"></div>
-    <div class="cert-node" style="--i:14"><img src="assets/cert15.png" alt="Cert 15"></div>
-    <div class="cert-node" style="--i:15"><img src="assets/cert16.png" alt="Cert 16"></div>
-    <div class="cert-node" style="--i:16"><img src="assets/cert17.png" alt="Cert 17"></div>
-  </div>
-
-
-  
-  <!-- <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-  <dotlottie-player src="https://lottie.host/7d128dbc-99ff-4a01-86c8-f1e2dc117ac6/MhzhU0tCkN.json" background="transparent" speed="0.7" style="width: 300px; height: 200px" loop autoplay></dotlottie-player>
-   -->
-  </section>
-
-  <section id="contact">
-  <h2>Let’s Connect 🌟</h2>
-  <p style="text-align:center; margin-bottom: 2rem;">Got a project, idea or just want to say hi? Slide into my inbox </p>
-
-  <div class="contact-icons">
-    <a href="https://www.linkedin.com/in/anishasingh23" target="_blank" class="contact-link linkedin">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
-    </a>
-    <a href="https://github.com/anishasingh23" target="_blank" class="contact-link github">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
-    </a>
-    <a href="mailto:anishasingh0412@gmail.com" class="contact-link email">
-      <img src="https://img.icons8.com/color/48/000000/apple-mail.png" alt="Email" />
-    </a>
-  </div>
-  </section>
+<!-- YOUR EXISTING CONTENT STARTS HERE -->
+<!-- Keep all your existing HTML exactly as it is -->
+    <!-- End of new intro -- >
+     
 
 
 
 
-  <!-- Lottie Animation -->
-  <lottie-player
-    src="https://lottie.host/7e733927-98e5-4898-a1d5-7754f11eb8c4/p63LCM0Ldk.json"
-    background="transparent"
-    speed="1"
-    style="width: 220px; height: 180px; position: fixed; bottom: 0; right: 0; z-index: 10; pointer-events: none;"
-    loop
-    autoplay>
-  </lottie-player>
 
 
 
-  <!-- tsParticles CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-  <!-- Custom Script -->
-  <script src="script.js"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+
+
+
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="logo">Anisha Singh</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Anisha Singh</h1>
+            <div class="hero-subtitle">Building Tomorrow's AI Solutions Today</div>
+            <p>Probably overthinking this tagline right now</p>
+            <button class="cta-button" onclick="scrollToSection('projects')">Take a closer look!</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">The human behind the algorithms (yes, I'm real! 🤖)</p>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Hey there! I'm Anisha, a <span class="highlight">Bennett University</span> Computer Science student with a specialization in AI who loves making machines think they're smarter than humans (spoiler: they're not... yet 😏).</p>
+                <br>
+                <p>With a <span class="highlight">CGPA of 9.31</span>, I spend my days wrestling with neural networks, teaching computers to understand human language, and occasionally wondering if my code will achieve sentience and take over the world.</p>
+                <br>
+                <p>When I'm not busy explaining to my models why they can't just "wing it" on training data, you'll find me building semantic search engines that actually find what you're looking for (revolutionary, I know!) and creating trading bots that are probably smarter than most humans at picking stocks.</p>
+                <br>
+                <p><em>Fun fact: I've published research that's in the top 20% - because apparently, even academia thinks my work is pretty cool! 📚</em></p>
+                
+                <div style="margin-top: 30px;">
+                    <span class="achievement-badge">🏆 Dean's List Award 2023-24</span>
+                    <span class="achievement-badge">📊 CGPA: 9.31</span>
+                    <span class="achievement-badge">📄 Published Researcher</span>
+                    <span class="achievement-badge">🚀 Top 20% Paper</span>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="profile-img wiggle">AS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <h2 class="section-title">My Digital Playground</h2>
+        <p class="section-subtitle">Where ideas meet reality (and bugs) </p>
+        
+        <div class="carousel-container">
+            
+            <h3 class="carousel-title">🔍 AI & Machine Learning Projects</h3>
+            <div class="carousel" id="aiProjects">
+                <div class="card">
+                    <h3>VectorSense - Semantic Search Engine</h3>
+                    <p>Built a search engine so smart, it probably understands your queries better than you do! Achieved ~95% accuracy across 100+ documents using FAISS and Sentence-BERT because apparently, computers can read minds now.</p>
+                    <p><strong>Fun fact:</strong> Response time under 200ms - faster than your attention span! ⚡</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">NLP</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Algorithmic Trading Bot</h3>
+                    <p>Created a trading bot with LSTM forecasting that's probably better at making money than most Wall Street analysts. Features VWAP, TWAP strategies and achieved a Sharpe Ratio of 1.6!</p>
+                    <p><em>"Why trust human emotions when algorithms can lose money more efficiently?" </em></p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LSTM</span>
+                        <span class="tech-tag">Backtrader</span>
+                        <span class="tech-tag">Yahoo Finance API</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Brain Tumor Classification with CBAM-ResNet</h3>
+                    <p>Co-authored a top 20% research paper because apparently, I'm good at teaching computers to spot brain tumors. Enhanced ResNet with CBAM for interpretable medical AI.</p>
+                    <p><strong>Achievement unlocked:</strong> +6% F1-score improvement! </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">ResNet</span>
+                        <span class="tech-tag">CBAM</span>
+                        <span class="tech-tag">Medical AI</span>
+                        <span class="tech-tag">Springer LNNS</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Retainlytics - Customer Intelligence</h3>
+                    <p>Built an analytics suite that predicts customer lifetime value (R² = 0.82) and churn risk (AUC = 0.89). Because who doesn't want to know which customers are about to ghost you?</p>
+                    <p><em>Marketing teams love it, customers... well, they don't know they're being analyzed! </em></p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">RFM Analysis</span>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="carousel-container">
+            <h3 class="carousel-title">💻 Software Development Projects</h3>
+            <div class="carousel" id="softwareProjects">
+                <div class="card">
+                    <h3>Snap n' Score - QR Attendance System</h3>
+                    <p>Designed an attendance system that reduced proxy attendance by 45% - because apparently, students were getting too creative with their "presence". Features secure Supabase backend and 30% faster processing!</p>
+                    <p><strong>Plot twist:</strong> Actually made attendance taking fun! </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">QR Codes</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Real-Time Alerting System</h3>
+                    <p>Built a scalable alerting engine using multithreading and event-driven architecture. It monitors streaming data in real-time and probably has better reflexes than you do!</p>
+                    <p><em>"Never miss an alert again... even if you want to!" </em></p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Multithreading</span>
+                        <span class="tech-tag">OOP</span>
+                        <span class="tech-tag">Queue Management</span>
+                        <span class="tech-tag">Event-Driven</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-container">
+            <h3 class="carousel-title">Recognitions</h3>
+            <div class="carousel" id="aiProjects">
+                
+                <div class="card">
+                    <h3>Dean's List Award 2023-24</h3>
+                    <p><strong>Bennett University Recognition</strong></p>
+                    <p>Achieved top academic performance and maintained excellence throughout the academic year.</p>
+                    <p><em>"Proof that I actually study instead of just Googling everything!"</em> 🏆</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Academic Excellence</span>
+                        <span class="tech-tag">Top Performer</span>
+                        <span class="tech-tag">Leadership</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>ICCTRDA 2025 Publication</h3>
+                    <p><strong>Springer LNNS, Scopus/WoS Indexed</strong><br>Top 20% Accepted Paper</p>
+                    <p>Co-authored research on "Explainable Brain Tumor Classification using CBAM-Augmented ResNet" - because making AI explain itself is apparently my thing!</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Springer</span>
+                        <span class="tech-tag">Scopus Indexed</span>
+                        <span class="tech-tag">Top 20%</span>
+                        <span class="tech-tag">Medical AI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+        
+    </section>
+
+    
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <p class="section-subtitle">What I can do when I'm not busy debugging at 3 AM </p>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>🐍 Programming Languages</h3>
+                <ul class="skill-list">
+                    <li>C++ (For when I feel masochistic)</li>
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>🧠 AI & Machine Learning</h3>
+                <ul class="skill-list">
+                    <li>GenAI (Teaching machines creativity)</li>
+                    <li>Deep Learning (Going deep... into neural nets)</li>
+                    <li>TensorFlow (Google's gift to humanity)</li>
+                    <li>BERT</li>
+                    <li>RAG (Retrieval-Augmented Generation)</li>
+                    <li>OpenAI APIs (ChatGPT's siblings)</li>
+                    <li>LangChain</li>
+                    <li>Vector Databases (Where embeddings live)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>🔍 NLP & Information Retrieval</h3>
+                <ul class="skill-list">
+                    <li>Semantic Search (Finding needles in haystacks)</li>
+                    <li>Query Optimization</li>
+                    <li>Indexing</li>
+                    <li>Retrieval Models</li>
+                    <li>Text Processing (Making sense of human gibberish)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>💻 Development & Tools</h3>
+                <ul class="skill-list">
+                    <li>Git & GitHub (Version control)</li>
+                    <li>VS Code (My coding sanctuary)</li>
+                    <li>Streamlit (Making data science pretty)</li>
+                    <li>Figma (Design thinking mode)</li>
+                    <li>Flutter</li>
+                    <li>MySQL (Database relationships counselor)</li>
+                    <li>MS Office (The classic trio)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>🏗️ CS Fundamentals</h3>
+                <ul class="skill-list">
+                    <li>Data Structures (Building blocks of logic)</li>
+                    <li>Algorithms (Problem-solving recipes)</li>
+                    <li>OOP (Object-Oriented Programming)</li>
+                    <li>Distributed Systems</li>
+                    <li>Multithreading (Parallel universes)</li>
+                    <li>Event-driven Architecture</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>🚀 Other Superpowers</h3>
+                <ul class="skill-list">
+                    <li>Agile/Scrum</li>
+                    <li>Research Writing</li>
+                    <li>Problem Solving</li>
+                    <li>Tea Consumption (Professional level ☕)</li>
+                    <li>Explaining AI to non-techies (Patience level: Saint)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="education">
+        <h2 class="section-title">My Academic Journey</h2>
+        <p class="section-subtitle">Where I learned to speak fluent Python and convince computers to do my bidding 🎓</p>
+        
+        <div class="carousel-container">
+            <h3 class="carousel-title">🎓 University & School</h3>
+            <div class="carousel" id="education">
+                <div class="card">
+                    <h3>Bachelor of Technology (Computer Science)</h3>
+                    <p><strong>Bennett University</strong><br>Sep 2022 - Present<br><strong>CGPA: 9.31</strong> (Yes, I'm that student! 🤓)</p>
+                    <p><strong>Specialization:</strong> Artificial Intelligence</p>
+                    <p><em>"Currently teaching machines to be smarter while trying not to create Skynet"</em></p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AI Specialization</span>
+                        <span class="tech-tag">Dean's List 2023-24</span>
+                        <span class="tech-tag">Research Publications</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Class 12th - Science Stream</h3>
+                    <p><strong>Aster Public School</strong><br><strong>96.4%</strong> in PCM</p>
+                    <p>Where I first discovered that Math + Physics + Chemistry = endless possibilities (and occasional headaches)</p>
+                    <p><em>"Plot twist: Ended up falling in love with computers instead!"</em></p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Physics</span>
+                        <span class="tech-tag">Chemistry</span>
+                        <span class="tech-tag">Mathematics</span>
+                        <span class="tech-tag">96.4% Score</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Let's Connect!</h2>
+        <p class="section-subtitle">Ready to chat about AI, code, or why my models are smarter than yours? 😉</p>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3 style="color: #ff6b9d; margin-bottom: 30px;">Find Me Around The Internet 🌐</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <span>anishasingh0412@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <span>+91 7982445682</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <span>linkedin.com/in/anishasingh23</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💻</div>
+                    <span>github.com/anishasingh23</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌟</div>
+                    <span>anishasingh23.github.io</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🧩</div>
+                    <span>LeetCode: aniisha_</span>
+                </div>
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p style="color: #888; font-style: italic;">
+                        "Currently accepting offers to build the next AI revolution (or at least something cooler than a chatbot) 🤖✨"
+                    </p>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name (I promise I won't train an AI on it)" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email (No spam, I'm not that kind of developer)" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Subject (Make it interesting!)" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Your Message (AI-generated messages will be flagged 😏)" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Send Message 🚀</button>
+            </form>
+        </div>
+    </section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
+
+        
+
+    <!-- Education Section -->
+    
+
+        
