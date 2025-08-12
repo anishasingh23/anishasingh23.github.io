@@ -334,7 +334,7 @@ function showCameraModal() {
     if (modal) {
         setTimeout(() => {
             modal.classList.add('show');
-        }, 2000); // Show after 2 seconds
+        }, 9000); // Show after 2 seconds
     }
 }
 
