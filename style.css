@@ -19,6 +19,8 @@
             100% { background-position: 0% 50%; }
         }
 
+
+
         /* Floating particles */
         .particles {
             position: fixed;
@@ -178,6 +180,8 @@
             color: #cccccc;
             font-style: italic;
         }
+
+
 
         .cta-button {
             padding: 18px 45px;
@@ -430,6 +434,8 @@
             animation: rotate 10s linear infinite;
         }
 
+
+
         /* Skills Grid */
         .skills-grid {
             display: grid;
@@ -641,6 +647,19 @@
             margin: 5px;
             animation: pulse 2s ease-in-out infinite alternate;
         }
+.github-link {
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 10px;
+    color: #8b9bb4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.github-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
 
         @keyframes pulse {
             from { box-shadow: 0 0 10px rgba(255,107,157,0.3); }
