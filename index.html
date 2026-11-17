@@ -13,7 +13,7 @@
     <!-- Start of new intro -- >
      
     <!-- QUIRKY LANDING OVERLAY - Add this right after <body> -->
-    <div id="landing-overlay" class="landing-overlay">
+    <!-- <div id="landing-overlay" class="landing-overlay">
         <div class="stars"></div>
 
         <div class="landing-container">
@@ -41,7 +41,7 @@
         </div>
 
         <!-- Camera Permission Modal -->
-        <div class="camera-modal" id="cameraModal">
+        <!-- <div class="camera-modal" id="cameraModal">
             <div class="camera-modal-content">
                 <h3>🎥 Want a personalized experience?</h3>
                 <p>I can analyze your reactions in real-time to make this more fun!</p>
@@ -55,7 +55,7 @@
         </div>
         
         <!-- Camera Denied "Think Again" Modal -->
-        <div class="camera-denied-modal" id="cameraDeniedModal">
+        <!-- <div class="camera-denied-modal" id="cameraDeniedModal">
             <div class="camera-modal-content">
                 <h3>🤔 Think again?</h3>
                 <p>The emotion detection is pretty cool... it can tell when you're impressed!</p>
@@ -69,20 +69,20 @@
         </div>
         
         <!-- Camera Video Preview Window -->
-        <div class="camera-preview" id="cameraPreview">
+        <!-- <div class="camera-preview" id="cameraPreview">
             <video id="userVideo" autoplay muted></video>
             <div class="emotion-display" id="emotionDisplay">😐 Analyzing...</div>
             <button class="close-camera" onclick="closeCamera()">×</button>
-        </div>
+        </div>  -->
         
-    </div>
+    <!-- </div>
 
         <!-- Floating emojis -->
-        <div class="floating-emoji" style="top: 15%; left: 10%; animation-delay: 0s;">💻</div>
+        <!-- <div class="floating-emoji" style="top: 15%; left: 10%; animation-delay: 0s;">💻</div>
         <div class="floating-emoji" style="top: 25%; right: 15%; animation-delay: 2s;">🚀</div>
         <div class="floating-emoji" style="bottom: 20%; left: 20%; animation-delay: 4s;">⚡</div>
         <div class="floating-emoji" style="top: 40%; right: 25%; animation-delay: 1s;">🎯</div>
-    </div>
+    </div> --> 
 
 <!-- YOUR EXISTING CONTENT STARTS HERE -->
 <!-- Keep all your existing HTML exactly as it is -->
@@ -124,7 +124,6 @@
         <div class="hero-content">
             <h1>Anisha Singh</h1>
             <div class="hero-subtitle">Building Tomorrow's AI Solutions Today</div>
-            <p>Probably overthinking this tagline right now</p>
             <button class="cta-button" onclick="scrollToSection('projects')">Take a closer look!</button>
         </div>
     </section>
@@ -135,17 +134,19 @@
         <p class="section-subtitle"></p>
         <div class="about-grid">
             <div class="about-text">
-                <p>Hey there! I'm Anisha, a <span class="highlight">Bennett University</span> Computer Science student with a specialization in AI who loves making machines think they're smarter than humans (spoiler: they're not... yet 😏).</p>
-                <br>
-                <p>With a <span class="highlight">CGPA of 9.31</span>, I spend my days wrestling with neural networks, teaching computers to understand human language, and occasionally wondering if my code will achieve sentience and take over the world.</p>
-                <br>
-                <p>When I'm not busy explaining to my models why they can't just "wing it" on training data, you'll find me building semantic search engines that actually find what you're looking for (revolutionary, I know!) and creating trading bots that are probably smarter than most humans at picking stocks.</p>
-                <br>
-                <p><em>Fun fact: I've published research that's in the top 20% - because apparently, even academia thinks my work is pretty cool! 📚</em></p>
+                Hey, I'm Anisha, a Computer Science graduate specializing in AI from <span class="highlight">Bennett University</span>, interested in building intelligent systems that go beyond just working in a demo.
+
+                With a <span class="highlight">CGPA of 9.34</span>, I've explored different areas of AI, from machine learning and deep learning to generative AI and agentic systems. I've also worked on backend services and API integrations, bringing AI applications closer to real-world use.
+
+                During my AI/ML internship I worked on an LLM security initiative, building pipelines to detect prompt injection, mitigate harmful outputs, and improve model reliability. I've also built RAG applications, AI agents, and semantic search systems, while exploring ways to make AI workflows more robust and effective.
+
+                Outside of engineering, I'm interested in AI research and its applications across different domains. My research on explainable brain tumor classification, combining deep learning with visual explanations, was published through Springer.
+
+                <em>Always curious, always experimenting, and usually working on something that involves making AI a little more reliable.</em>
                 
                 <div style="margin-top: 30px;">
                     <span class="achievement-badge">🏆 Dean's List Award 2023-24</span>
-                    <span class="achievement-badge">📊 CGPA: 9.31</span>
+                    <span class="achievement-badge">📊 CGPA: 9.34</span>
                     <span class="achievement-badge">📄 Published Researcher</span>
                     <span class="achievement-badge">🚀 Top 20% Paper</span>
                 </div>
@@ -160,7 +161,7 @@
 
     <section class="section" id=experience">
         <h2 class="section-title">My Internship Experience</h2>
-        <p class="section-subtitle">Working as an AI/ML Intern for Quamin Tech Solutions, where I contribute towards AI TRiSM (Trust, Risk, and Security Management).</p>
+        <p class="section-subtitle">Worked as an AI/ML Intern for Quamin Tech Solutions, where I contribute towards AI TRiSM (Trust, Risk, and Security Management).</p>
         
         <div class="carousel-container">
             <h3 class="carousel-title">My Learnings</h3>
@@ -204,6 +205,22 @@
                         <span class="tech-tag">NLP</span>
                     </div>
                 </div>
+
+                <div class="card">
+                    <h3>Multi-Step Research Agent</h3>
+                    <p>Built an AI research agent using LangGraph that autonomously plans tasks, retrieves information from the web, analyzes findings, and generates structured research reports. Supports document uploads, real-time progress tracking, and execution tracing for transparent workflows.</p>
+                    <p><em>"From a research question to a structured report, with every step accounted for."</em></p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LangGraph</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Groq API</span>
+                        <span class="tech-tag">DuckDuckGo Search</span>
+                        <span class="tech-tag">SSE</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>pan class="tech-tag">Yahoo Finance API</span>
+                                        </div>
+                </div>
                 
                 <div class="card">
                     <h3>VectorSense - Semantic Search Engine</h3>
@@ -216,17 +233,7 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <h3>Algorithmic Trading Bot</h3>
-                    <p>Created a trading bot with LSTM forecasting that's probably better at making money than most Wall Street analysts. Features VWAP, TWAP strategies and achieved a Sharpe Ratio of 1.6!</p>
-                    <p><em>"Why trust human emotions when algorithms can lose money more efficiently?" </em></p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">LSTM</span>
-                        <span class="tech-tag">Backtrader</span>
-                        <span class="tech-tag">Yahoo Finance API</span>
-                    </div>
-                </div>
+                
                 <div class="card">
                     <h3>Brain Tumor Classification with CBAM-ResNet</h3>
                     <p>Co-authored a top 20% research paper because apparently, I'm good at teaching computers to spot brain tumors. Enhanced ResNet with CBAM for interpretable medical AI.</p>
@@ -239,17 +246,7 @@
                         <span class="tech-tag">Springer LNNS</span>
                     </div>
                 </div>
-                <div class="card">
-                    <h3>Retainlytics - Customer Intelligence</h3>
-                    <p>Built an analytics suite that predicts customer lifetime value (R² = 0.82) and churn risk (AUC = 0.89). Because who doesn't want to know which customers are about to ghost you?</p>
-                    <p><em>Marketing teams love it, customers... well, they don't know they're being analyzed! </em></p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">XGBoost</span>
-                        <span class="tech-tag">Streamlit</span>
-                        <span class="tech-tag">RFM Analysis</span>
-                    </div>
-                </div>
+                
             </div>
            
         </div>
@@ -323,7 +320,6 @@
     <!-- Skills Section -->
     <section class="section" id="skills">
         <h2 class="section-title">My Skills</h2>
-        <p class="section-subtitle">What I can do when I'm not busy debugging at 3 AM </p>
         <div class="skills-grid">
             <div class="skill-category">
                 <h3>🐍 Programming Languages</h3>
@@ -331,18 +327,17 @@
                     <li>C++ (For when I feel masochistic)</li>
                     <li>Python</li>
                     <li>SQL</li>
-                    <li>JavaScript</li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h3>🧠 AI & Machine Learning</h3>
+                <h3>AI & Machine Learning</h3>
                 <ul class="skill-list">
-                    <li>GenAI (Teaching machines creativity)</li>
-                    <li>Deep Learning (Going deep... into neural nets)</li>
-                    <li>TensorFlow (Google's gift to humanity)</li>
+                    <li>GenAI </li>
+                    <li>Deep Learning)</li>
+                    <li>TensorFlow</li>
                     <li>BERT</li>
                     <li>RAG (Retrieval-Augmented Generation)</li>
-                    <li>OpenAI APIs (ChatGPT's siblings)</li>
+                    <li>OpenAI APIs </li>
                     <li>LangChain</li>
                     <li>Vector Databases (Where embeddings live)</li>
                 </ul>
@@ -364,7 +359,6 @@
                     <li>VS Code (My coding sanctuary)</li>
                     <li>Streamlit (Making data science pretty)</li>
                     <li>Figma (Design thinking mode)</li>
-                    <li>Flutter</li>
                     <li>MySQL (Database relationships counselor)</li>
                     <li>MS Office (The classic trio)</li>
                 </ul>
@@ -376,7 +370,6 @@
                     <li>Algorithms (Problem-solving recipes)</li>
                     <li>OOP (Object-Oriented Programming)</li>
                     <li>Distributed Systems</li>
-                    <li>Multithreading (Parallel universes)</li>
                     <li>Event-driven Architecture</li>
                 </ul>
             </div>
@@ -395,20 +388,18 @@
 
     <section class="section" id="education">
         <h2 class="section-title">My Academic Journey</h2>
-        <p class="section-subtitle">Where I learned to speak fluent Python and convince computers to do my bidding 🎓</p>
         
         <div class="carousel-container">
             <h3 class="carousel-title">🎓 University & School</h3>
             <div class="carousel" id="education">
                 <div class="card">
                     <h3>Bachelor of Technology (Computer Science)</h3>
-                    <p><strong>Bennett University</strong><br>Sep 2022 - Present<br><strong>CGPA: 9.31</strong> (Yes, I'm that student! 🤓)</p>
+                    <p><strong>Bennett University</strong><br>Sep 2022 - Present<br><strong>CGPA: 9.34</strong> </p>
                     <p><strong>Specialization:</strong> Artificial Intelligence</p>
-                    <p><em>"Currently teaching machines to be smarter while trying not to create Skynet"</em></p>
                     <div class="tech-stack">
                         <span class="tech-tag">AI Specialization</span>
                         <span class="tech-tag">Dean's List 2023-24</span>
-                        <span class="tech-tag">Research Publications</span>
+                        <span class="tech-tag">Research Coneference Publications</span>
                     </div>
                 </div>
                 <div class="card">
@@ -438,9 +429,7 @@
                     <div class="contact-icon">📧</div>
                     <span>anishasingh0412@gmail.com</span>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📱</div>
-                    <span>+91 7982445682</span>
+                
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">💼</div>
